@@ -21,8 +21,6 @@ app.use((req, res, next) => {
 
 app.use('/', express.static('www'));
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
-
 app.get('/login', (req, res) => {
     res.sendFile((path.join(__dirname + '/www/index.html')))
 });
