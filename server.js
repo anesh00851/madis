@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs')
-const locations = require('./location.json');
+// const locations = require('../location.json');
 const { json } = require('stream/consumers');
 const app = express();
 const host = '0.0.0.0';
