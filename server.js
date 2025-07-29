@@ -29,17 +29,17 @@ app.get('/madis/select', (req, res) => {
 //     res.send(JSON.stringify(locations))
 // });
 
-// app.post('/bookride', (req, res, next) => {
-//     const bookridejson = JSON.stringify(req.body)
-//     console.log(bookridejson)
-//     const dataBuffer = fs.readFileSync('cdrel.json')
-//     const dataJSON = dataBuffer.toString()
-//     const cdrels = JSON.parse(dataJSON)
-//     cdrels.push(JSON.parse(bookridejson))
-//     const cdrelsstringfy = JSON.stringify(cdrels)
-//     fs.writeFileSync('cdrel.json', cdrelsstringfy)
-//     res.json(JSON.parse(cdrelsstringfy))
-// })
+app.post('/addcustomer', (req, res, next) => {
+    const bookridejson = JSON.stringify(req.body)
+    console.log(bookridejson)
+    const dataBuffer = fs.readFileSync('customer.json')
+    const dataJSON = dataBuffer.toString()
+    const cdrels = JSON.parse(dataJSON)
+    cdrels.push(JSON.parse(bookridejson))
+    const cdrelsstringfy = JSON.stringify(cdrels)
+    fs.writeFileSync('customer.json', cdrelsstringfy)
+    res.json(JSON.parse(cdrelsstringfy))
+})
 
 app.listen(port, host, () => {
     console.log(`server listening on port ${port}`)
