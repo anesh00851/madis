@@ -85,16 +85,37 @@ app.post('/getacknowledge', (req, res, next) => {
     // console.log("@", cdrels)
     let signature = {}
     for (let [keyvall, objval] of Object.entries(cdrels)) {
-            // console.log(keyvall,"$",objval.acknowledge)
-            if(JSON.stringify(objval.acknowledge) == signtre){
-                signature = JSON.stringify(objval.acknowledge)
-            }
+        // console.log(keyvall,"$",objval.acknowledge)
+        if (JSON.stringify(objval.acknowledge) == signtre) {
+            signature = JSON.stringify(objval.acknowledge)
+        }
     }
     res.format({
         json() {
             res.send(signature)
         }
     })
+})
+
+app.get('/getcustomerlist', (req, res, next) => {
+    const dataBuffer = fs.readFileSync('customer.json')
+    const dataJSON = dataBuffer.toString()
+    let custlisttemplate = "<div style='display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:45px'>"
+    for (let [keyvall, objval] of Object.entries(JSON.parse(dataJSON))) {
+        // console.log(keyvall, "$",objval.customervegis)
+        for (let [keyval2, objval2] of Object.entries(objval.customervegis)) {
+            // console.log(keyval2, "$", objval2)
+            custlisttemplate += "<p><span>" + keyval2 + " - </span>" + objval2 + "</p>"
+        }
+        for (let [keyval3, objval3] of Object.entries(objval.address)) {
+            // console.log(keyval3, "$", objval3)
+            custlisttemplate += "<p><span>" + keyval3 + " - </span>" + objval3 + "</p>"
+        }
+        custlisttemplate += "<p style='color:white;background-color:orange'>"+objval.acknowledge+"</p>"
+        custlisttemplate += "<p>******************</p>"
+    }
+        custlisttemplate += "</div>"
+    res.send(custlisttemplate)
 })
 
 app.listen(port, host, () => {
