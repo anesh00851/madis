@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const { response } = require('express');
 const app = express();
 const host = '0.0.0.0';
 const port = 3000;
-
 
 app.use(express.json())
 
@@ -21,6 +21,10 @@ app.use('/', express.static('www'));
 
 app.get('/madis/select', (req, res) => {
     res.sendFile((path.join(__dirname + '/www/index.html')))
+});
+
+app.get('/acknowledgeui', function(req, res) {
+    res.sendFile('acknowledge.html', {root: __dirname })
 });
 
 app.post('/addcustomer', (req, res, next) => {
@@ -100,6 +104,9 @@ app.post('/getacknowledge', (req, res, next) => {
 app.get('/getcustomerlist', (req, res, next) => {
     const dataBuffer = fs.readFileSync('customer.json')
     const dataJSON = dataBuffer.toString()
+    let response
+    let responseData
+    let error
     let custlisttemplate = "<div style='display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:45px'>"
     for (let [keyvall, objval] of Object.entries(JSON.parse(dataJSON))) {
         // console.log(keyvall, "$",objval.customervegis)
@@ -111,10 +118,10 @@ app.get('/getcustomerlist', (req, res, next) => {
             // console.log(keyval3, "$", objval3)
             custlisttemplate += "<p><span>" + keyval3 + " - </span>" + objval3 + "</p>"
         }
-        custlisttemplate += "<p style='color:white;background-color:orange'>"+objval.acknowledge+"</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.acknowledge + "</p>"
         custlisttemplate += "<p>******************</p>"
     }
-        custlisttemplate += "</div>"
+    custlisttemplate += "</div>"
     res.send(custlisttemplate)
 })
 
