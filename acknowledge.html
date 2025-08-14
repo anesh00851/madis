@@ -10,31 +10,36 @@
 <body>
     <div style="display: flex; align-items: center;justify-content: center;flex-direction: column;height: 500px;">
         <input style="width: 90%;padding: 8px;margin-bottom: 10px;" type="text" id="myInput" placeholder="Enter signature">
-        <button style="background-color: orange;width: 90%;padding: 8px;color: white;border: none;" id="acknowledgeid" onclick="
-    const inputValue = document.getElementById('myInput').value;
-/**fetch('http://localhost:3000/acknowledge', {**/
-    fetch('https://madis-witn.onrender.com/acknowledge', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-    'acknowledge':inputValue
-})
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(responseData => {
-    console.log('Success:', responseData);
-})
-.catch(error => {
-    console.error('Error:', error);
-});">Payment received i acknowledge</button>
+        <button style="background-color: orange;width: 90%;padding: 8px;color: white;border: none;" id="acknowledgeid" onclick="acknowledge()">Payment received i acknowledge</button>
     </div>
+
+    <script>
+        function acknowledge() {
+            const inputValue = document.getElementById('myInput').value;
+                fetch('http://localhost:3000/acknowledge', {
+                //fetch('https://madis-witn.onrender.com/acknowledge', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'acknowledge': inputValue
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(responseData => {
+                    console.log('Success:', responseData);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
 </body>
 
 </html>
