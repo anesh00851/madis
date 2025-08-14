@@ -16,8 +16,8 @@
     <script>
         function acknowledge() {
             const inputValue = document.getElementById('myInput').value;
-                fetch('http://localhost:3000/acknowledge', {
-                //fetch('https://madis-witn.onrender.com/acknowledge', {
+                // fetch('http://localhost:3000/acknowledge', {
+                fetch('https://madis-witn.onrender.com/acknowledge', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
