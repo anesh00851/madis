@@ -119,6 +119,7 @@ app.get('/getcustomerlist', (req, res, next) => {
             custlisttemplate += "<p><span>" + keyval3 + " - </span>" + objval3 + "</p>"
         }
         custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.acknowledge + "</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.free + "</p>"
         custlisttemplate += "<p>******************</p>"
     }
     custlisttemplate += "</div>"
