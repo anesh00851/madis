@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 app.use('/', express.static('www'));
 
-app.get('/madis/select', (req, res) => {
+app.get('/fud-ista/select', (req, res) => {
     res.sendFile((path.join(__dirname + '/www/index.html')))
 });
 
