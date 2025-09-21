@@ -23,6 +23,14 @@ app.get('/fud-ista/select', (req, res) => {
     res.sendFile((path.join(__dirname + '/www/index.html')))
 });
 
+app.get('/fud-ista/pay', (req, res) => {
+    res.sendFile((path.join(__dirname + '/www/index.html')))
+});
+
+app.get('/fud-ista/address', (req, res) => {
+    res.sendFile((path.join(__dirname + '/www/index.html')))
+});
+
 app.get('/acknowledgeui', function(req, res) {
     res.sendFile('acknowledge.html', {root: __dirname })
 });
