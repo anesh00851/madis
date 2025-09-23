@@ -120,17 +120,17 @@ app.get('/getcustomerlist', (req, res, next) => {
         // console.log(keyvall, "$",objval.customervegis)
         for (let [keyval2, objval2] of Object.entries(objval.customervegis)) {
             // console.log(keyval2, "$", objval2)
-            custlisttemplate += "<p><span>" + keyval2 + " - </span>" + objval2 + "</p>"
+            custlisttemplate += "<p style='margin-top: 0px;margin-bottom: 0px;'><span>" + keyval2 + " - </span>" + objval2 + "</p>"
         }
         for (let [keyval3, objval3] of Object.entries(objval.address)) {
             // console.log(keyval3, "$", objval3)
-            custlisttemplate += "<p><span>" + keyval3 + " - </span>" + objval3 + "</p>"
+            custlisttemplate += "<p style='margin-top: 0px;margin-bottom: 0px;'><span>" + keyval3 + " - </span>" + objval3 + "</p>"
         }
-        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.acknowledge + "</p>"
-        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.free + "</p>"
-        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.lattitude + "</p>"
-        custlisttemplate += "<p style='color:white;background-color:orange'>" + objval.longitude + "</p>"
-        custlisttemplate += "<p>******************</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.acknowledge + "</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.free + "</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.lattitude + "</p>"
+        custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.longitude + "</p>"
+        custlisttemplate += "<p style='color:red;margin-top: 0px;margin-bottom: 0px;'>******************</p>"
     }
     custlisttemplate += "</div>"
     res.send(custlisttemplate)
