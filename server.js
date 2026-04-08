@@ -127,7 +127,7 @@ app.get('/getcustomerlist', (req, res, next) => {
             custlisttemplate += "<p style='margin-top: 0px;margin-bottom: 0px;'><span>" + keyval3 + " - </span>" + objval3 + "</p>"
         }
         custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.acknowledge + "</p>"
-        custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.free + "</p>"
+        // custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.free + "</p>"
         custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.lattitude + "</p>"
         custlisttemplate += "<p style='color:white;background-color:orange;margin-top: 0px;margin-bottom: 0px;'>" + objval.longitude + "</p>"
         custlisttemplate += "<p style='color:red;margin-top: 0px;margin-bottom: 0px;'>******************</p>"
